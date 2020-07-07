@@ -9,7 +9,8 @@
   display: block;
   width: 100%;
 
-  [disabled] {
-    opacity: 0.8;
+  &[disabled] {
+    opacity: 0.6;
+    cursor: no-drop;
   }
 }

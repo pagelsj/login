@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  HttpClientTestingModule,
+  HttpTestingController
+} from '@angular/common/http/testing';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 import { LoginComponent } from './login.component';
@@ -11,7 +15,8 @@ describe('LoginComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ LoginComponent ],
       imports: [
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

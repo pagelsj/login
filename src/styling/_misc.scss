@@ -1,0 +1,29 @@
+@import './variables';
+
+.border-top {
+  border-top: solid 1px $color_1;
+}
+.border-right {
+  border-right: solid 1px $color_1;
+}
+.border-bottom {
+  border-bottom: solid 1px $color_1;
+}
+.border-left {
+  border-left: solid 1px $color_1;
+}
+
+.bg_1 {
+  background: $color_1;
+}
+.bg_2 {
+  background: $color_2;
+}
+.bg_3 {
+  background: $color_3;
+}
+
+.error {
+  color: $color_error;
+}
+

@@ -1,0 +1,26 @@
+// COLORS
+$color_1: #F8F8F8;
+$color_2: #D1D1D1;
+$color_3: #3E7AA2;
+
+$color_font: #333;
+$color_error: #F74545;
+
+$size-xs: 0;
+$size-sm: 576px;
+$size-md: 768px;
+$size-lg: 992px;
+$size-xl: 1200px;
+
+$grid-breakpoints: (
+  xs: $size-xs,
+  sm: $size-sm,
+  md: $size-md,
+  lg: $size-lg,
+  xl: $size-xl
+);
+$border-radius: 3px;
+$padding: 25px;
+
+$page-width: 1000px;
+

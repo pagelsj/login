@@ -1,0 +1,16 @@
+@import "../styling/variables";
+
+.login-page {
+  padding: 100px 0;
+
+  .bg {
+    background: url('https://cdn.pixabay.com/photo/2014/04/05/11/32/stone-316225_1280.jpg') 100%;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+}

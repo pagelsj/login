@@ -5,6 +5,10 @@ import {
   Validators
 } from '@angular/forms';
 
+import {
+  PasswordValidator
+} from '../../validators/password/password.validator';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,13 +16,20 @@ import {
 })
 export class LoginComponent {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   loginForm = new FormGroup({
     firstName: new FormControl('', [ Validators.required ]),
     lastName: new FormControl('', [ Validators.required ]),
     emailAddress: new FormControl('', [ Validators.required ]),
-    password: new FormControl('', [ Validators.required ])
+    password: new FormControl('',
+      [
+        Validators.required,
+        PasswordValidator()
+      ]
+    )
   });
 
   onSubmit() {

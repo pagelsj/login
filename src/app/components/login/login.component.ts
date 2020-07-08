@@ -5,9 +5,7 @@ import {
   Validators
 } from '@angular/forms';
 
-import {
-  PasswordValidator
-} from '../../validators/password/password.validator';
+import { PasswordValidator } from '../../validators/password/password.validator';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +21,12 @@ export class LoginComponent {
   loginForm = new FormGroup({
     firstName: new FormControl('', [ Validators.required ]),
     lastName: new FormControl('', [ Validators.required ]),
-    emailAddress: new FormControl('', [ Validators.required ]),
+    emailAddress: new FormControl('',
+      [
+        Validators.required,
+        Validators.email
+      ]
+    ),
     password: new FormControl('',
       [
         Validators.required,

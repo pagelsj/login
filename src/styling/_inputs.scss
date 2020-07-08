@@ -13,5 +13,9 @@ input {
   &:focus {
     background: #FFF;
   }
+
+  &.ng-dirty.ng-invalid {
+    border-bottom: 1px solid $color_error;
+  }
 }
 

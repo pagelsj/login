@@ -5,7 +5,9 @@ import {
   Validators
 } from '@angular/forms';
 
-import { PasswordValidator } from '../../validators/password/password.validator';
+import { PasswordValidator } from '../../validators/index';
+
+import { UserDetailsPostService } from '../../services/index'
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ import { PasswordValidator } from '../../validators/password/password.validator'
 })
 export class LoginComponent {
 
-  constructor() {
+  constructor( private userDetailsPostService: UserDetailsPostService) {
 
   }
 
@@ -36,6 +38,11 @@ export class LoginComponent {
   });
 
   onSubmit() {
-    console.log('This form is valid and will submit now.');
+    this.userDetailsPostService.post(this.loginForm.value)
+      .subscribe(resp => {
+        alert('Thank you for Signing up, ' + this.loginForm.get('firstName').value);
+
+        // Error handling can be added here depending on what responses are returned.
+      });
   }
 }

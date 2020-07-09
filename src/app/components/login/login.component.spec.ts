@@ -112,4 +112,15 @@ describe('LoginComponent', () => {
 
   });
 
+  describe('onSubmit', () => {
+
+    it('should call the validation method to check all inputs 1 last time', () => {
+      spyOn(component, 'validateAllFormFields');
+      component.onSubmit();
+
+      expect(component.validateAllFormFields).toHaveBeenCalled()
+    });
+
+  });
+
 });

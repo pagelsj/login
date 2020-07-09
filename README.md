@@ -7,7 +7,7 @@ To build the project, clone the repo to your local machine and in the terminal r
 To run the project, simply run `ng serve` in the terminal.
 Once this has completed, navigate to `http://localhost:4200` in your browser.
 
-In order to run the unit tests, in the terminal run `ng test`.
+In order to run the unit tests, in the terminal run `ng test` or `ng test --code-coverage` to enable test coverage.
 
 ## Notes
 ## Routing

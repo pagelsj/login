@@ -44,7 +44,16 @@ export class LoginComponent implements OnInit{
     });
   }
 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      control.updateValueAndValidity();
+    });
+  }
+
   onSubmit() {
+
+    this.validateAllFormFields(this.loginForm);
 
     if(this.loginForm.invalid)
       return;

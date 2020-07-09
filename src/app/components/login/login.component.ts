@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
+  FormBuilder,
   FormGroup,
   FormControl,
   Validators
@@ -14,30 +15,40 @@ import { UserDetailsPostService } from '../../services/index'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
+  loginForm: FormGroup;
 
-  constructor( private userDetailsPostService: UserDetailsPostService) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private userDetailsPostService: UserDetailsPostService
+  ) {
 
   }
 
-  loginForm = new FormGroup({
-    firstName: new FormControl('', [ Validators.required ]),
-    lastName: new FormControl('', [ Validators.required ]),
-    emailAddress: new FormControl('',
-      [
-        Validators.required,
-        Validators.email
-      ]
-    ),
-    password: new FormControl('',
-      [
-        Validators.required,
-        PasswordValidator()
-      ]
-    )
-  });
+  ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+      firstName: new FormControl('', [ Validators.required ]),
+      lastName: new FormControl('', [ Validators.required ]),
+      emailAddress: new FormControl('',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ),
+      password: new FormControl('',
+        [
+          Validators.required,
+          PasswordValidator()
+        ]
+      )
+    });
+  }
 
   onSubmit() {
+
+    if(this.loginForm.invalid)
+      return;
+
     this.userDetailsPostService.post(this.loginForm.value)
       .subscribe(resp => {
         alert('Thank you for Signing up, ' + this.loginForm.get('firstName').value);

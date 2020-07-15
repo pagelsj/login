@@ -22,7 +22,7 @@ export function PasswordValidator(): ValidatorFn {
         valid = false;
       }
 
-      return !valid ? {'error': 'Invalid password'} : null;
+      return !valid ? {'password': 'Invalid password'} : null;
     }
   }
 };

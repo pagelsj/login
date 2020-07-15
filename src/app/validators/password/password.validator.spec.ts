@@ -24,34 +24,34 @@ describe('maxTextLength', () => {
     formGroup.get('password').setValue('PeterHook');
     let controlError = formGroup.get('password').errors;
 
-    expect(controlError).toEqual({ 'error': 'Invalid password' });
+    expect(controlError).toEqual({ 'password': 'Invalid password' });
   });
 
   it('should fail validation if the password contains the lastname field value', () => {
     formGroup.get('password').setValue('CaptainPan');
     let controlError = formGroup.get('password').errors;
 
-    expect(controlError).toEqual({ 'error': 'Invalid password' });
+    expect(controlError).toEqual({ 'password': 'Invalid password' });
   });
 
   it('should fail validation if the password contains less than 8 characters', () => {
     formGroup.get('password').setValue('Ab');
     let controlError = formGroup.get('password').errors;
 
-    expect(controlError).toEqual({ 'error': 'Invalid password' });
+    expect(controlError).toEqual({ 'password': 'Invalid password' });
   });
 
   it('should fail validation if the password contains less than 1 UPPERCASE character but more than 8 character length', () => {
     formGroup.get('password').setValue('abcdefghijk');
     let controlError = formGroup.get('password').errors;
 
-    expect(controlError).toEqual({ 'error': 'Invalid password' });
+    expect(controlError).toEqual({ 'password': 'Invalid password' });
   });
 
   it('should fail validation if the password contains  less than 1 lowercase character but more than 8 character length', () => {
     formGroup.get('password').setValue('ABCDEFGHIJK');
     let controlError = formGroup.get('password').errors;
 
-    expect(controlError).toEqual({ 'error': 'Invalid password' });
+    expect(controlError).toEqual({ 'password': 'Invalid password' });
   });
 });

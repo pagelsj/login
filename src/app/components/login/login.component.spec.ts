@@ -151,8 +151,7 @@ describe('LoginComponent', () => {
       const passwordControl = component.loginForm.controls['password'];
 
       let errors = passwordControl.errors || {};
-      console.log(passwordControl.errors);
-      expect(errors.password).toBeTruthy;
+      expect(errors.password).toBeTruthy();
     });
 
     it('should be valid if the correct data is entered', () => {
@@ -170,6 +169,32 @@ describe('LoginComponent', () => {
     });
 
   });
+
+  describe('validateAllFormFields', () => {
+
+    it('should loop through all form fields and retest the vlidation', () => {
+      const form = component.loginForm;
+      form.setValue({
+        firstName: "firstName",
+        lastName: "lastName",
+        emailAddress: "test@test.com",
+        password: "PaSSw0rd"
+      });
+      spyOn(form.controls['firstName'], 'updateValueAndValidity');
+      spyOn(form.controls['lastName'], 'updateValueAndValidity');
+      spyOn(form.controls['emailAddress'], 'updateValueAndValidity');
+      spyOn(form.controls['password'], 'updateValueAndValidity');
+
+      component.validateAllFormFields(form);
+
+      expect(form.controls['firstName'].updateValueAndValidity).toHaveBeenCalled()
+      expect(form.controls['lastName'].updateValueAndValidity).toHaveBeenCalled()
+      expect(form.controls['emailAddress'].updateValueAndValidity).toHaveBeenCalled()
+      expect(form.controls['password'].updateValueAndValidity).toHaveBeenCalled()
+    });
+
+  });
+
 
   describe('onSubmit', () => {
 
